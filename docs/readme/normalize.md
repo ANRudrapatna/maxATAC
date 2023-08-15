@@ -18,7 +18,7 @@ maxatac normalize -i GM12878_RP20M.bw -name GM12878_minmax -o ./test --method mi
 
 The input bigwig file to be normalized.
 
-### `-n`, `--name`, `--prefix`
+### `-n`,`--prefix`
 
 The name used to build the output filename. This can be any string.
 
