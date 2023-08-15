@@ -20,7 +20,7 @@ maxatac predict --tf CTCF --signal GM12878.bigwig
 
 The user must provide either the TF name that they want to make predictions for or the h5 model file they desire. If the user provides a TF name, the best model will be used and the correct threshold file will be provided for peak calling.
 
-### `-s, --signal, -i`
+### `--signal`
 
 The ATAC-seq signal bigwig track that will be used to make predictions of TF binding.
 
@@ -46,7 +46,7 @@ The cutoff value for the cutoff type provided. Note precision, recall, and F1-sc
 
 The cutoff file provided in /data/models that corresponds to the average validation performance metrics for the TF model.
 
-### `-o, --output`
+### `--output`
 
 Output directory path. Default: `./prediction_results`
 
