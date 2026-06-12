@@ -43,6 +43,7 @@ def run_benchmarking(args):
         "Benchmarking" +
         "\n  Prediction file:" + args.prediction +
         "\n  Gold standard file: " + args.gold_standard +
+        "\n  Blacklist file: " + args.blacklist_bw +
         "\n  Bin size: " + str(args.bin_size) +
         "\n  Restricting to chromosomes: \n   - " + "\n   - ".join(args.chromosomes) +
         "\n  Output directory: " + output_dir
@@ -63,7 +64,7 @@ def run_benchmarking(args):
                         args.agg_function,
                         results_filename,
                         args.round_predictions,
-                        plot=args.skip_plot)
+                        plot=args.plot)
 
     # Measure End Time of Training
     stopTime = timeit.default_timer()
