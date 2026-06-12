@@ -176,6 +176,14 @@ def get_parser():
                                 help="Chromosomes for averaging. Default: 1-22"
                                 )
 
+    average_parser.add_argument("--genome",
+                                dest="genome",
+                                type=str,
+                                default="hg38",
+                                required=False,
+                                help="The reference genome build to use."
+                                )
+    
     average_parser.add_argument("-o", "--output", "--output_dir",
                                 dest="output_dir",
                                 type=str,
@@ -222,6 +230,13 @@ def get_parser():
                                 type=str,
                                 help="Genome sequence 2bit file."
                                 )
+    
+    predict_parser.add_argument("--genome",
+                                dest="genome",
+                                type=str,
+                                default="hg38",
+                                required=False,
+                                help="The reference genome build to use.")
 
     predict_parser.add_argument("-i", "-s", "--signal",
                                 dest="signal",
@@ -328,6 +343,13 @@ def get_parser():
                                 default=False,
                                 required=False,
                                 help="Skip calling peaks on prediction tracks"
+                                )
+    
+    predict_parser.add_argument("--threads",
+                                dest="threads",
+                                type=int,
+                                default=24,
+                                help="Number of processes to run prediction in parallel. Default: 24."
                                 )
 
     #############################################
@@ -602,6 +624,14 @@ def get_parser():
                                   default=AUTOSOMAL_CHRS,
                                   help="Chromosomes for normalization. Default: 1-22"
                                   )
+    
+    normalize_parser.add_argument("--genome",
+                                  dest="genome",
+                                  type=str,
+                                  default="hg38",
+                                  required=False,
+                                  help="The reference genome build to use."
+                                )
 
     normalize_parser.add_argument("-o", "--output", "--output_dir",
                                   dest="output_dir",
@@ -722,6 +752,13 @@ def get_parser():
                                         max, mean, min"
                                   )
 
+    benchmark_parser.add_argument("--genome",
+                                  dest="genome",
+                                  type=str,
+                                  default="hg38",
+                                  required=False,
+                                  help="The reference genome build to use.")
+    
     benchmark_parser.add_argument("--round_predictions",
                                   dest="round_predictions",
                                   type=int,
@@ -757,12 +794,12 @@ def get_parser():
                                   help="The blacklisted regions to exclude in BigWig format"
                                   )
 
-    benchmark_parser.add_argument("-skip_plot", "--skip_plot",
-                                dest="skip_plot",
+    benchmark_parser.add_argument("-plot", "--plot",
+                                dest="plot",
                                 action="store_true",
                                 default=False,
                                 required=False,
-                                help="Skip PR curve plotting"
+                                help="Plot the PR curve."
                                 )
     #############################################
     # Peaks subparser
@@ -1015,6 +1052,14 @@ def get_parser():
                                 help="The chromosomes to include in the final output."
                                 )
 
+    prepare_parser.add_argument("--genome",
+                                dest="genome",
+                                type=str,
+                                default="hg38",
+                                required=False,
+                                help="The reference genome build to use."
+                                )
+
     prepare_parser.add_argument("-t", "-threads", "--threads",
                                 dest="threads",
                                 type=int,
@@ -1091,9 +1136,23 @@ def get_parser():
                                   choices=LOG_LEVELS.keys(),
                                   help="Logging level. Default: " + DEFAULT_LOG_LEVEL
                                   )
+    
+    threshold_parser.add_argument("--genome",
+                                  dest="genome",
+                                  type=str,
+                                  default="hg38",
+                                  required=False,
+                                  help="The reference genome build to use."
+                                 )
 
     threshold_parser.add_argument("--blacklist_bw",
                                   dest="blacklist_bw",
+                                  type=str,
+                                  help="The blacklisted regions to exclude in bigwig format."
+                                  )
+    
+    threshold_parser.add_argument("--blacklist_bed",
+                                  dest="blacklist_bed",
                                   type=str,
                                   help="The blacklisted regions to exclude in bigwig format."
                                   )
