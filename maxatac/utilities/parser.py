@@ -181,8 +181,16 @@ def get_parser():
                                 type=str,
                                 default="hg38",
                                 required=False,
-                                help="The reference genome build to use."
+                                help="The reference genome build to which the input file was aligned."
                                 )
+  
+    average_parser.add_argument("--max_zooms",
+                                dest="max_zooms",
+                                type=int,
+                                default=5,
+                                required=False,
+                                help="The number of zoom levels that should be computed for the averaged bigWig file."
+                               )
     
     average_parser.add_argument("-o", "--output", "--output_dir",
                                 dest="output_dir",
@@ -236,7 +244,15 @@ def get_parser():
                                 type=str,
                                 default="hg38",
                                 required=False,
-                                help="The reference genome build to use.")
+                                help="The reference genome build to which the input file was aligned.")
+  
+    average_parser.add_argument("--max_zooms",
+                                dest="max_zooms",
+                                type=int,
+                                default=5,
+                                required=False,
+                                help="The number of zoom levels that should be computed for the output bigWig file."
+                               )
 
     predict_parser.add_argument("-i", "-s", "--signal",
                                 dest="signal",
@@ -369,7 +385,7 @@ def get_parser():
                               type=str,
                               default="hg38",
                               required=False,
-                              help="The reference genome build to use."
+                              help="The reference genome build to which the input file was aligned."
                               )
 
     train_parser.add_argument("--sequence",
@@ -630,7 +646,15 @@ def get_parser():
                                   type=str,
                                   default="hg38",
                                   required=False,
-                                  help="The reference genome build to use."
+                                  help="The reference genome build to which the input file was aligned."
+                                )
+
+    normalize_parser.add_argument("--max_zooms",
+                                  dest="max_zooms",
+                                  type=int,
+                                  default=5,
+                                  required=False,
+                                  help="The number of zoom levels that should be computed for the normalized bigWig file."
                                 )
 
     normalize_parser.add_argument("-o", "--output", "--output_dir",
@@ -757,7 +781,7 @@ def get_parser():
                                   type=str,
                                   default="hg38",
                                   required=False,
-                                  help="The reference genome build to use.")
+                                  help="The reference genome build to which the input file was aligned.")
     
     benchmark_parser.add_argument("--round_predictions",
                                   dest="round_predictions",
@@ -924,7 +948,7 @@ def get_parser():
                                  type=str,
                                  default="hg38",
                                  required=False,
-                                 help="The reference genome build to use."
+                                 help="The reference genome build to which the input file was aligned."
                                  )
 
     variants_parser.add_argument("-s", "--sequence",
@@ -1057,7 +1081,7 @@ def get_parser():
                                 type=str,
                                 default="hg38",
                                 required=False,
-                                help="The reference genome build to use."
+                                help="The reference genome build to which the input file was aligned."
                                 )
 
     prepare_parser.add_argument("-t", "-threads", "--threads",
@@ -1142,7 +1166,7 @@ def get_parser():
                                   type=str,
                                   default="hg38",
                                   required=False,
-                                  help="The reference genome build to use."
+                                  help="The reference genome build to which the input BAM file was aligned."
                                  )
 
     threshold_parser.add_argument("--blacklist_bw",
